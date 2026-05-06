@@ -1,6 +1,7 @@
 import { getAllStudents } from "@/actions/estudiantes"
 import { DeleteButton } from "./DeleteButton"
 import { CreateForm } from "./CreateForm"
+import { EditForm } from "./EditForm"
 
 export default async function EstudiantesPage() {
     const estudiantes = await getAllStudents()
@@ -41,6 +42,7 @@ export default async function EstudiantesPage() {
                                     <td className="border border-gray-300 px-4 py-2">{estudiante.sexo_id}</td>
                                     <td className="border border-gray-300 px-4 py-2">{estudiante.etnia_id}</td>
                                     <td className="border border-gray-300 px-4 py-2">
+                                        <EditForm estudiante={estudiante} />
                                         <DeleteButton id={estudiante.id} />
                                     </td>
                                 </tr>
